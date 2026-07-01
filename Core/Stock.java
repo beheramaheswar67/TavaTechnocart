@@ -1,4 +1,5 @@
-
+package Core;
+import Consumer;
 
 public class Stock {
     int goods;

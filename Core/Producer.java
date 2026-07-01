@@ -1,8 +1,9 @@
-public class Consumer implements Runnable{
+package Core;
+public class Producer implements Runnable {
     Stock s;
     Thread t;
 
-    Consumer (Stock s) {
+    Producer(Stock s) {
         this.s = s;
         t = new Thread(this);
         t.start();
@@ -15,14 +16,13 @@ public class Consumer implements Runnable{
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                     }
-            s.getGoods((int)(Math.random()*100));
+            s.addGoods((int)(Math.random()*100));
         }
     }
     public void kill(){
         t.stop();
-        t = null;
+        t = null; 
     }
     
     
 }
-

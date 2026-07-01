@@ -1,8 +1,10 @@
-public class Producer implements Runnable {
+import Core.Stock;
+
+public class Consumer implements Runnable{
     Stock s;
     Thread t;
 
-    Producer(Stock s) {
+    Consumer (Stock s) {
         this.s = s;
         t = new Thread(this);
         t.start();
@@ -15,13 +17,14 @@ public class Producer implements Runnable {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                     }
-            s.addGoods((int)(Math.random()*100));
+            s.getGoods((int)(Math.random()*100));
         }
     }
     public void kill(){
         t.stop();
-        t = null; 
+        t = null;
     }
     
     
 }
+
